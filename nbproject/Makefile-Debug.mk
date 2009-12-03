@@ -31,6 +31,8 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Timer.o \
+	${OBJECTDIR}/testtictoc.o \
 	${OBJECTDIR}/tictoc.o
 
 # C Compiler Flags
@@ -51,13 +53,21 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	${MAKE}  -f nbproject/Makefile-Debug.mk dist/Debug/MinGW-Windows/libtictoc.a
+	${MAKE}  -f nbproject/Makefile-Debug.mk dist/Debug/MinGW-Windows/tictoc.exe
 
-dist/Debug/MinGW-Windows/libtictoc.a: ${OBJECTFILES}
+dist/Debug/MinGW-Windows/tictoc.exe: ${OBJECTFILES}
 	${MKDIR} -p dist/Debug/MinGW-Windows
-	${RM} dist/Debug/MinGW-Windows/libtictoc.a
-	${AR} rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtictoc.a ${OBJECTFILES} 
-	$(RANLIB) dist/Debug/MinGW-Windows/libtictoc.a
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tictoc ${OBJECTFILES} ${LDLIBSOPTIONS} 
+
+${OBJECTDIR}/Timer.o: nbproject/Makefile-${CND_CONF}.mk Timer.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Timer.o Timer.cpp
+
+${OBJECTDIR}/testtictoc.o: nbproject/Makefile-${CND_CONF}.mk testtictoc.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/testtictoc.o testtictoc.cpp
 
 ${OBJECTDIR}/tictoc.o: nbproject/Makefile-${CND_CONF}.mk tictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -70,7 +80,7 @@ ${OBJECTDIR}/tictoc.o: nbproject/Makefile-${CND_CONF}.mk tictoc.cpp
 # Clean Targets
 .clean-conf:
 	${RM} -r build/Debug
-	${RM} dist/Debug/MinGW-Windows/libtictoc.a
+	${RM} dist/Debug/MinGW-Windows/tictoc.exe
 
 # Subprojects
 .clean-subprojects:

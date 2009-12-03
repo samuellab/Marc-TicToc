@@ -31,6 +31,8 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Timer.o \
+	${OBJECTDIR}/testtictoc.o \
 	${OBJECTDIR}/tictoc.o
 
 # C Compiler Flags
@@ -58,6 +60,16 @@ dist/Release/MinGW-Windows/libtictoc.a: ${OBJECTFILES}
 	${RM} dist/Release/MinGW-Windows/libtictoc.a
 	${AR} rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtictoc.a ${OBJECTFILES} 
 	$(RANLIB) dist/Release/MinGW-Windows/libtictoc.a
+
+${OBJECTDIR}/Timer.o: nbproject/Makefile-${CND_CONF}.mk Timer.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Timer.o Timer.cpp
+
+${OBJECTDIR}/testtictoc.o: nbproject/Makefile-${CND_CONF}.mk testtictoc.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/testtictoc.o testtictoc.cpp
 
 ${OBJECTDIR}/tictoc.o: nbproject/Makefile-${CND_CONF}.mk tictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}

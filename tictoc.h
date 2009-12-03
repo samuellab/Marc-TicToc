@@ -10,6 +10,7 @@
 
 #include <map>
 #include <cstring>
+class Timer;
 
 namespace TICTOC {
     class tictoc {
@@ -20,7 +21,7 @@ namespace TICTOC {
          */
         static const int NOT_FOUND = -1;
         static const int NOT_TICKED = -2;
-
+        static const double TICKS_PER_SEC = 1E6;
         /* tictoc()
          * ~tictoc()
          * constructor takes no arguments
@@ -61,15 +62,18 @@ namespace TICTOC {
          * return value will be NOT_TICKED
          */
 
-        long toc(const std::string &name, bool notock = false);
-        long toc(const char *name, bool notock = false);
+        double toc(const std::string &name, bool notock = false);
+        double toc(const char *name, bool notock = false);
 
         std::string generateReport();
         char *generateReportCstr();
 
     private:
+        double clock();
+
         tictoc(const tictoc& orig);
         std::map <std::string, struct _tictoc_data> tt;
+        Timer *tim;
     };
 
     /* static tictoc timer

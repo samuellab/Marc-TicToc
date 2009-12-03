@@ -11,8 +11,8 @@ CND_CONF=Debug
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtictoc.a
-OUTPUT_BASENAME=libtictoc.a
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tictoc
+OUTPUT_BASENAME=tictoc
 PACKAGE_TOP_DIR=tictoc/
 
 # Functions
