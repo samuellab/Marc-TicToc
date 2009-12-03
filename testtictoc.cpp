@@ -9,6 +9,7 @@
 #include <iostream>
 #include "tictoc.h"
 #include "Timer.h"
+#include "subpart.h"
 using namespace TICTOC;
 using namespace std;
 /*
@@ -39,28 +40,32 @@ void delayms (int nms) {
 void testTicToc() {
     tictoc bob;
     bob.tic("timer tic");
-    timer.tic("all");
+   // tictoc& timer = *(tictoc::timer);
+    timer().tic("all");
     bob.toc("timer tic");
     for (int j = 0; j < 10; ++j) {
         bob.tic("timer tic");
-        timer.tic("outer loop");
+        timer().tic("outer loop");
         bob.toc("timer tic");
+
+        delayOneClockIncrement();
+
         for (int k = 0; k < 10; ++k) {
             bob.tic("timer tic");
-            timer.tic ("inner loop");
+            timer().tic ("inner loop");
             bob.toc("timer tic");
             delayms(1);
             bob.tic("timer toc");
-            timer.toc ("inner loop");
+            timer().toc ("inner loop");
             bob.toc("timer toc");
         }
         bob.tic("timer toc");
-        timer.toc ("outer loop");
+        timer().toc ("outer loop");
         bob.toc("timer toc");
     }
     bob.tic("timer toc");
-    timer.toc("all");
+    timer().toc("all");
     bob.toc("timer toc");
-    cout << timer.generateReport();
+    cout << timer().generateReport();
     cout << "\n" << bob.generateReport();
 }

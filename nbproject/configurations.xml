@@ -20,6 +20,8 @@
     </logicalFolder>
     <itemPath>Timer.cpp</itemPath>
     <itemPath>Timer.h</itemPath>
+    <itemPath>subpart.cpp</itemPath>
+    <itemPath>subpart.h</itemPath>
     <itemPath>testtictoc.cpp</itemPath>
     <itemPath>tictoc.cpp</itemPath>
     <itemPath>tictoc.h</itemPath>

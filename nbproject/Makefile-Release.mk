@@ -33,6 +33,7 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Timer.o \
 	${OBJECTDIR}/testtictoc.o \
+	${OBJECTDIR}/subpart.o \
 	${OBJECTDIR}/tictoc.o
 
 # C Compiler Flags
@@ -70,6 +71,11 @@ ${OBJECTDIR}/testtictoc.o: nbproject/Makefile-${CND_CONF}.mk testtictoc.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/testtictoc.o testtictoc.cpp
+
+${OBJECTDIR}/subpart.o: nbproject/Makefile-${CND_CONF}.mk subpart.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/subpart.o subpart.cpp
 
 ${OBJECTDIR}/tictoc.o: nbproject/Makefile-${CND_CONF}.mk tictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
