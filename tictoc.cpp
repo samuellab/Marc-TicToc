@@ -34,6 +34,7 @@ _tictoc_data ntt() {
     tt.mintime = UINT_MAX;
     tt.ticked = false;
     tt.numblowntics = 0;
+    return tt;
 }
 tictoc::tictoc() {
 }
