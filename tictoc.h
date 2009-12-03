@@ -8,6 +8,13 @@
 #ifndef _TICTOC_H
 #define	_TICTOC_H
 
+/* macros to make it easy to track a function execution time
+ * just put _TICTOC_TIC_FUNC at the beginning of the function call
+ * and put _TICTOC_TOC_FUNC right before any return statement
+ */
+#define _TICTOC_TIC_FUNC TICTOC::timer.tic(__func__);
+#define _TICTOC_TOC_FUNC TICTOC::timer.toc(__func__);
+
 #include <map>
 #include <cstring>
 class Timer;

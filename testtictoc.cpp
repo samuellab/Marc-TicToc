@@ -26,12 +26,14 @@ int main(int argc, char** argv) {
 }
 
 void delayms (int nms) {
+    _TICTOC_TIC_FUNC
     static Timer tim;
     tim.start();
     while (tim.getElapsedTimeInMilliSec() < nms) {
         ; //intentionally blank
     }
     tim.stop();
+    _TICTOC_TOC_FUNC
 }
 
 void testTicToc() {
