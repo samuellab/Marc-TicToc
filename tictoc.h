@@ -17,6 +17,7 @@
 
 #include <map>
 #include <cstring>
+#include <string>
 class Timer;
 
 namespace TICTOC {

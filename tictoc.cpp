@@ -7,8 +7,10 @@
 
 #include "tictoc.h"
 #include <limits>
+#include <climits>
 #include <map>
 #include <sstream>
+#include <assert.h>
 #include "Timer.h"
 
 using namespace std;
