@@ -96,12 +96,12 @@ namespace TICTOC {
          *
          * return value less than 0 indicates an error
          */
-        double getStatistics (const std::string &name);
-        double getStatistics (const std::string &name, int &ncalls, double &totaltime);
-        double getStatistics (const std::string &name, int &ncalls, double &totaltime, double &maxtime, double &mintime, int &numblowntics);
+        double getStatistics (const std::string &name) const;
+        double getStatistics (const std::string &name, int &ncalls, double &totaltime) const;
+        double getStatistics (const std::string &name, int &ncalls, double &totaltime, double &maxtime, double &mintime, int &numblowntics) const;
 
-        std::string generateReport();
-        char *generateReportCstr();
+        std::string generateReport() const;
+        char *generateReportCstr() const;
         //static tictoc *timer = new tictoc();
 
     private:

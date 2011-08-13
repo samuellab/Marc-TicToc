@@ -114,9 +114,9 @@ void tdpToSS (stringstream &s, const pair<string, _tictoc_data> *p) {
     tdpToSS(s,*p);
 }
 
-string tictoc::generateReport() {
+string tictoc::generateReport() const{
     stringstream s;
-    map<string, _tictoc_data>::iterator it;
+    map<string, _tictoc_data>::const_iterator it;
     for (it = tt.begin(); it != tt.end(); ++it) {
         s<<"-\n";
         tdpToSS(s, *it);
@@ -124,7 +124,7 @@ string tictoc::generateReport() {
     }
     return s.str();
 }
-char *tictoc::generateReportCstr() {
+char *tictoc::generateReportCstr() const{
     string s = generateReport();
     char *c = (char *) malloc(s.length() + 1);
     assert (c != NULL);
@@ -145,9 +145,9 @@ tictoc &TICTOC::timer() {
     return t;
 }
 
-double tictoc::getStatistics(const std::string& name, int& ncalls, double& totaltime, double& maxtime, double& mintime, int& numblowntics) {
-    _tictoc_data *td;
-    map<string, _tictoc_data>::iterator it;
+double tictoc::getStatistics(const std::string& name, int& ncalls, double& totaltime, double& maxtime, double& mintime, int& numblowntics) const{
+    const _tictoc_data *td;
+    map<string, _tictoc_data>::const_iterator it;
     it = tt.find(name);
     if (it == tt.end()) {
         return -1; //key not found
@@ -161,13 +161,13 @@ double tictoc::getStatistics(const std::string& name, int& ncalls, double& total
     return totaltime/ncalls;
 }
 
-double tictoc::getStatistics(const std::string& name, int& ncalls, double& totaltime) {
+double tictoc::getStatistics(const std::string& name, int& ncalls, double& totaltime) const{
     double maxtime, mintime;
     int nbt;
     return getStatistics(name, ncalls, totaltime, maxtime, mintime, nbt);
 }
 
-double tictoc::getStatistics(const std::string& name) {
+double tictoc::getStatistics(const std::string& name) const{
     int ncalls;
     double totaltime;
     return getStatistics(name, ncalls, totaltime);
