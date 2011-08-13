@@ -68,4 +68,5 @@ void testTicToc() {
     bob.toc("timer toc");
     cout << timer().generateReport();
     cout << "\n" << bob.generateReport();
+    cout << "\naverage time for inner loop: " << timer().getStatistics("inner loop") << "\n";
 }

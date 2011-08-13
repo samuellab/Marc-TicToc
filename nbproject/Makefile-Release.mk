@@ -10,13 +10,15 @@
 # Environment
 MKDIR=mkdir
 CP=cp
+GREP=grep
+NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=g77.exe
-AS=
+FC=
+AS=as.exe
 
 # Macros
 CND_PLATFORM=MinGW-Windows
@@ -31,10 +33,11 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Timer.o \
+	${OBJECTDIR}/tictoc.o \
 	${OBJECTDIR}/testtictoc.o \
 	${OBJECTDIR}/subpart.o \
-	${OBJECTDIR}/tictoc.o
+	${OBJECTDIR}/Timer.o
+
 
 # C Compiler Flags
 CFLAGS=
@@ -54,41 +57,41 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	${MAKE}  -f nbproject/Makefile-Release.mk dist/Release/MinGW-Windows/libtictoc.a
+	"${MAKE}"  -f nbproject/Makefile-Release.mk dist/Release/MinGW-Windows/libmarc-tictoc.a
 
-dist/Release/MinGW-Windows/libtictoc.a: ${OBJECTFILES}
+dist/Release/MinGW-Windows/libmarc-tictoc.a: ${OBJECTFILES}
 	${MKDIR} -p dist/Release/MinGW-Windows
-	${RM} dist/Release/MinGW-Windows/libtictoc.a
-	${AR} rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libtictoc.a ${OBJECTFILES} 
-	$(RANLIB) dist/Release/MinGW-Windows/libtictoc.a
+	${RM} dist/Release/MinGW-Windows/libmarc-tictoc.a
+	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libmarc-tictoc.a ${OBJECTFILES} 
+	$(RANLIB) dist/Release/MinGW-Windows/libmarc-tictoc.a
 
-${OBJECTDIR}/Timer.o: nbproject/Makefile-${CND_CONF}.mk Timer.cpp 
+${OBJECTDIR}/tictoc.o: tictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Timer.o Timer.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/tictoc.o tictoc.cpp
 
-${OBJECTDIR}/testtictoc.o: nbproject/Makefile-${CND_CONF}.mk testtictoc.cpp 
+${OBJECTDIR}/testtictoc.o: testtictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/testtictoc.o testtictoc.cpp
 
-${OBJECTDIR}/subpart.o: nbproject/Makefile-${CND_CONF}.mk subpart.cpp 
+${OBJECTDIR}/subpart.o: subpart.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/subpart.o subpart.cpp
 
-${OBJECTDIR}/tictoc.o: nbproject/Makefile-${CND_CONF}.mk tictoc.cpp 
+${OBJECTDIR}/Timer.o: Timer.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/tictoc.o tictoc.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Timer.o Timer.cpp
 
 # Subprojects
 .build-subprojects:
 
 # Clean Targets
-.clean-conf:
+.clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r build/Release
-	${RM} dist/Release/MinGW-Windows/libtictoc.a
+	${RM} dist/Release/MinGW-Windows/libmarc-tictoc.a
 
 # Subprojects
 .clean-subprojects:

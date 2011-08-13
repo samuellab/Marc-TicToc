@@ -145,3 +145,30 @@ tictoc &TICTOC::timer() {
     return t;
 }
 
+double tictoc::getStatistics(const std::string& name, int& ncalls, double& totaltime, double& maxtime, double& mintime, int& numblowntics) {
+    _tictoc_data *td;
+    map<string, _tictoc_data>::iterator it;
+    it = tt.find(name);
+    if (it == tt.end()) {
+        return -1; //key not found
+    }
+    td = &(it->second);
+    ncalls = td->ncalls;
+    totaltime = td->totaltime / TICKS_PER_SEC;
+    maxtime = td->maxtime / TICKS_PER_SEC;
+    mintime = td->mintime / TICKS_PER_SEC;
+    numblowntics = td->numblowntics;
+    return totaltime/ncalls;
+}
+
+double tictoc::getStatistics(const std::string& name, int& ncalls, double& totaltime) {
+    double maxtime, mintime;
+    int nbt;
+    return getStatistics(name, ncalls, totaltime, maxtime, mintime, nbt);
+}
+
+double tictoc::getStatistics(const std::string& name) {
+    int ncalls;
+    double totaltime;
+    return getStatistics(name, ncalls, totaltime);
+}

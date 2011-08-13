@@ -88,6 +88,18 @@ namespace TICTOC {
         double toc(const std::string &name, bool notock = false);
         double toc(const char *name, bool notock = false);
 
+        /* double getStatistics (const std::string &name);
+         * double getStatistics (const std::string &name, int &ncalls, double &totaltime);
+         * double getStatistics (const std::string &name, int &ncalls, double &totaltime, double &maxtime, double &mintime, int &numblowntics);
+         * returns average time per call for given name
+         * more stastics can be gathered by passing additional output variables
+         *
+         * return value less than 0 indicates an error
+         */
+        double getStatistics (const std::string &name);
+        double getStatistics (const std::string &name, int &ncalls, double &totaltime);
+        double getStatistics (const std::string &name, int &ncalls, double &totaltime, double &maxtime, double &mintime, int &numblowntics);
+
         std::string generateReport();
         char *generateReportCstr();
         //static tictoc *timer = new tictoc();

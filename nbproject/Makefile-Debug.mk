@@ -10,13 +10,15 @@
 # Environment
 MKDIR=mkdir
 CP=cp
+GREP=grep
+NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=g77.exe
-AS=
+FC=
+AS=as.exe
 
 # Macros
 CND_PLATFORM=MinGW-Windows
@@ -31,10 +33,11 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Timer.o \
+	${OBJECTDIR}/tictoc.o \
 	${OBJECTDIR}/testtictoc.o \
 	${OBJECTDIR}/subpart.o \
-	${OBJECTDIR}/tictoc.o
+	${OBJECTDIR}/Timer.o
+
 
 # C Compiler Flags
 CFLAGS=
@@ -54,39 +57,39 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	${MAKE}  -f nbproject/Makefile-Debug.mk dist/Debug/MinGW-Windows/tictoc.exe
+	"${MAKE}"  -f nbproject/Makefile-Debug.mk dist/Debug/MinGW-Windows/marc-tictoc.exe
 
-dist/Debug/MinGW-Windows/tictoc.exe: ${OBJECTFILES}
+dist/Debug/MinGW-Windows/marc-tictoc.exe: ${OBJECTFILES}
 	${MKDIR} -p dist/Debug/MinGW-Windows
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tictoc ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/marc-tictoc ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/Timer.o: nbproject/Makefile-${CND_CONF}.mk Timer.cpp 
+${OBJECTDIR}/tictoc.o: tictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Timer.o Timer.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/tictoc.o tictoc.cpp
 
-${OBJECTDIR}/testtictoc.o: nbproject/Makefile-${CND_CONF}.mk testtictoc.cpp 
+${OBJECTDIR}/testtictoc.o: testtictoc.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/testtictoc.o testtictoc.cpp
 
-${OBJECTDIR}/subpart.o: nbproject/Makefile-${CND_CONF}.mk subpart.cpp 
+${OBJECTDIR}/subpart.o: subpart.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/subpart.o subpart.cpp
 
-${OBJECTDIR}/tictoc.o: nbproject/Makefile-${CND_CONF}.mk tictoc.cpp 
+${OBJECTDIR}/Timer.o: Timer.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/tictoc.o tictoc.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Timer.o Timer.cpp
 
 # Subprojects
 .build-subprojects:
 
 # Clean Targets
-.clean-conf:
+.clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r build/Debug
-	${RM} dist/Debug/MinGW-Windows/tictoc.exe
+	${RM} dist/Debug/MinGW-Windows/marc-tictoc.exe
 
 # Subprojects
 .clean-subprojects:
