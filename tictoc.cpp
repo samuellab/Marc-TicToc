@@ -15,6 +15,7 @@
 #include <sstream>
 #include <assert.h>
 #include "Timer.h"
+#include <cstdlib>
 
 using namespace std;
 using namespace TICTOC;
